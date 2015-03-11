@@ -1,0 +1,42 @@
+My Repositories
+  <ul>
+    <% @my_repos.each do |repo| %>
+      <li> <%= repo.name %> </li>
+    <% end %>
+  </ul>
+
+My Location:
+  <br>
+  <%= @my_loc %>
+  <br>
+  <br>
+
+<%= form_tag '/', method: :get do %>
+  <%= label_tag 'username' %>
+  <%= text_field_tag :username %>
+  <%= submit_tag %>
+<% end %>
+<br>
+<% if @user_lookup %>
+  <b><%= @user_lookup.name %></b><br>
+  <%= @user_lookup.location %><br>
+  <%= @user_lookup.created_at %><br>
+  <%= @user_lookup.email %><br>
+  <%= @user_lookup.company %><br>
+  <%= image_tag @user_lookup.avatar_url, height: '40' %><br>
+<% end %>
+
+<%= form_tag '/', method: :get do %>
+  <%= label_tag 'user_repo' %>
+  <%= text_field_tag :user_repo %>
+  <%= submit_tag %>
+<% end %>
+
+<% if @repo_lookup %>
+
+<ul>
+<% @repo_lookup.each do |repo| %>
+  <li><%= repo.name %></li>
+  <% end %>
+</ul>
+<% end %>
